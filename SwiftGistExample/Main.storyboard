@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qrm-ut-bDG">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+    </dependencies>
+    <scenes>
+        <!--Top View Controller-->
+        <scene sceneID="v6p-Wg-eCN">
+            <objects>
+                <viewController id="VC1-Ux-EYG" customClass="TopViewController" customModule="SwiftGistExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RvW-qz-Qqc"/>
+                        <viewControllerLayoutGuide type="bottom" id="ROc-he-qJl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jUu-kD-HTF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2i5-Fu-8Hs">
+                                <rect key="frame" x="142" y="172" width="160" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HY4-Sb-b76">
+                                <rect key="frame" x="80" y="210" width="160" height="30"/>
+                                <state key="normal" title="Show Your Public Gists">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Pnw-K4-5ki" kind="push" identifier="toListViewController" id="Yeg-UZ-7am"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gist username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEV-MA-PpY">
+                                <rect key="frame" x="18" y="176" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WAx-A3-qat"/>
+                    <connections>
+                        <outlet property="usernameField" destination="2i5-Fu-8Hs" id="wsa-qp-Hk2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N4s-I2-IW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="413"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="3pG-bV-qso">
+            <objects>
+                <viewController id="Pnw-K4-5ki" customClass="ListViewController" customModule="SwiftGistExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tol-KF-uqc"/>
+                        <viewControllerLayoutGuide type="bottom" id="2g2-I6-9B1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Ay-2x-p3b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AAS-ch-e4k">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pnw-K4-5ki" id="BoY-78-Ktz"/>
+                                    <outlet property="delegate" destination="Pnw-K4-5ki" id="TtA-40-XyX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yUV-IC-a2y"/>
+                    <connections>
+                        <outlet property="tableView" destination="AAS-ch-e4k" id="hjb-65-Sdi"/>
+                        <segue destination="B08-Mw-pgC" kind="push" identifier="toWebViewController" id="ODt-il-pwz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9H-Ed-QuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357" y="410"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Ywc-V7-iKk">
+            <objects>
+                <viewController id="B08-Mw-pgC" customClass="WebViewController" customModule="SwiftGistExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yIx-9x-lsX"/>
+                        <viewControllerLayoutGuide type="bottom" id="24o-EC-mDn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fsi-7p-bKf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJA-As-Xjx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yYx-be-DA1"/>
+                    <connections>
+                        <outlet property="gistWebView" destination="rJA-As-Xjx" id="rco-iz-gxq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bgj-pX-C1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="410"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Acb-5n-o2I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qrm-ut-bDG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NQN-Fz-12v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VC1-Ux-EYG" kind="relationship" relationship="rootViewController" id="y32-M4-MOK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZi-ew-COl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570" y="413"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

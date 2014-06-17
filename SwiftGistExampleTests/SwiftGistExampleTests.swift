@@ -2,8 +2,8 @@
 //  SwiftGistExampleTests.swift
 //  SwiftGistExampleTests
 //
-//  Created by WAKASUGI Hirofumi on 2014/06/14.
-//  Copyright (c) 2014年 5t111111. All rights reserved.
+//  Created by 5t111111 on 2014/06/11.
+//  Copyright (c) 2014 5t111111. All rights reserved.
 //
 
 import XCTest
