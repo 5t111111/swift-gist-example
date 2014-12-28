@@ -10,9 +10,10 @@ import UIKit
 
 class TopViewController: UIViewController {
     
-    @IBOutlet var usernameField : UITextField = nil
-    var items: NSArray = []
+    @IBOutlet weak var usernameField: UITextField!
     
+    var items: NSArray = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

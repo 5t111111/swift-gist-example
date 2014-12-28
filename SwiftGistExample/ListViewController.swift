@@ -10,7 +10,8 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet var tableView : UITableView = nil
+    @IBOutlet weak var tableView: UITableView!
+    
     var userID: String = ""
     var items: NSArray = []
     var selectedGistURL:String = ""
@@ -30,11 +31,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int  {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int  {
         return items.count
     }
     
-    func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath:NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "GistCell")
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
@@ -50,9 +51,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let item = self.items[indexPath.row] as NSDictionary
         let files = item["files"] as NSDictionary
         let keys: Array = files.allKeys
-        cell.textLabel.text = keys[0] as String
-        cell.detailTextLabel.text = item["description"] as String
-        cell.detailTextLabel.font = UIFont.systemFontOfSize(10.0)
+        cell.textLabel!.text = keys[0] as String
+        cell.detailTextLabel!.text = item["description"] as String
+        cell.detailTextLabel!.font = UIFont.systemFontOfSize(10.0)
         println(item)
     }
     

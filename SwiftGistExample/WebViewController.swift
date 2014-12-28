@@ -10,9 +10,10 @@ import UIKit
 
 class WebViewController: UIViewController, UIWebViewDelegate {
     
-    @IBOutlet var gistWebView : UIWebView = nil
-    var gistURL: String = ""
+    @IBOutlet weak var gistWebView: UIWebView!
     
+    var gistURL: String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,7 +23,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         self.view.addSubview(self.gistWebView)
         
         println(gistURL)
-        var url: NSURL = NSURL.URLWithString(gistURL)
+        var url: NSURL = NSURL(string: gistURL)!
         var urlRequest: NSURLRequest = NSURLRequest(URL: url)
         self.gistWebView.loadRequest(urlRequest)
     }
